@@ -60,6 +60,10 @@ public class HeadsUpDisplay : VRGUI
         {
             GUI.Label(new Rect(w / 2 - 300, h - 350, 600, 400), "<size=120>" + dodgeHint + "</size>");
         }
+        if (BattlePositionFinal.IsBossComing())
+        {
+            GUI.Label(new Rect(w / 2 - 300, h / 2 - 200, 600, 400), "<size=60>Final Boss Coming!</size>");
+        }
         if (BattlePositionFinal.IsgameOver())
         {
             GUI.Label(new Rect(w / 2 - 300, h / 2 - 200, 600, 400), "<size=60>Mission Accomplished!</size>");

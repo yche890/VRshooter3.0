@@ -14,10 +14,13 @@ public class BattlePositionFinal: MonoBehaviour {
     public GameObject[] enemies;
     private bool canGo = false;
     public GameObject explosion;
+    public AudioClip explosionEffect;
     private static bool gameOver =false;
     private bool pickedUp = false;
     public GameObject barrelToEnable;
+    private GameObject finalBoss;
     public int dodgeRestrict;   //1:only left  2:only right 3: no left or right 0: no limit
+    private static bool showBossComing = false;
     // the first pickup
     void Start(){
         foreach (GameObject g in enemies)
@@ -25,6 +28,7 @@ public class BattlePositionFinal: MonoBehaviour {
             if (g != null)
             {
                 g.GetComponentInChildren<MeshRenderer>().enabled = false;
+                finalBoss = g;
             }
         }
     }
@@ -34,6 +38,8 @@ public class BattlePositionFinal: MonoBehaviour {
             pickedUp = true;
             //Debug.LogError("pickup trigger collide");
             player.GetComponentInChildren<KinectInput>().setRestrict(dodgeRestrict);
+            showBossComing = true;
+            Invoke("DisableBossComing" , 3.0f);
             foreach (GameObject g in enemies){
                 if(g != null){
                     g.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
@@ -70,8 +76,12 @@ public class BattlePositionFinal: MonoBehaviour {
         player.GetComponent<SplineController>().StartSpline();
     }
     void Boom () {
-        Vector3 pos = splines.transform.FindChild("1").position;
+        Vector3 pos = finalBoss.transform.position;
         Instantiate(explosion,pos ,Quaternion.identity);
+        AudioSource.PlayClipAtPoint(explosionEffect, transform.position);
+    }
+    void DisableBossComing(){
+        showBossComing = false;
     }
     public bool checkEnemyAllDie(){
         bool result = true;
@@ -86,4 +96,8 @@ public class BattlePositionFinal: MonoBehaviour {
     public static bool IsgameOver(){
         return gameOver;
     }
+    public static bool IsBossComing(){
+        return showBossComing;
+    }
+
 }
