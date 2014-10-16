@@ -358,12 +358,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 76}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c17d1fd2ad118621d00030888d76c639, type: 3}
+  m_Script: {fileID: 11500000, guid: f9fcd15aab7134d03ab27482146695f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ClipPlaneOffset: .00999999978
-  m_ReflectUpperSide: 1
-  m_DisablePixelLights: 1
 --- !u!23 &70
 Renderer:
   m_ObjectHideFlags: 0
@@ -437,7 +434,7 @@ GameObject:
   - 114: {fileID: 64}
   - 114: {fileID: 77}
   m_Layer: 0
-  m_Name: 
+  m_Name: mir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

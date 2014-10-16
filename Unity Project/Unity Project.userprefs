@@ -1,24 +1,39 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\OVR\Scripts\OVRCrosshair.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HermiteSplineController\SplineController.cs">
     <Files>
-      <File FileName="Assets\OVR\Scripts\OVRCrosshair.cs" Line="168" Column="3" />
-      <File FileName="Assets\Scripts\KinectInput.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\InitialPosition.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\BattlePositionFinal.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyBulletFly.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\Yang\Desktop\VRshooter1.0\Unity Project\Assets\OVR\Editor\OVRCameraControllerEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\HeadsUpDisplay.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\Yang\Desktop\VRshooter1.0\Unity Project\Assets\OVR\Scripts\OVRCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\KinectControlScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SpawnBullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Barrel.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\BattlePosition.cs" Line="1" Column="1" />
-      <File FileName="Assets\OVR\Scripts\OVRCrosshair.cs" Line="1" Column="1" />
-      <File FileName="Assets\Mirror Reflection\MirrorReflection.shader" Line="1" Column="1" />
-      <File FileName="Assets\Mirror Reflection\MirrorReflection.cs" Line="1" Column="1" />
+      <File FileName="Assets\HermiteSplineController\SplineController.cs" Line="44" Column="17" />
+      <File FileName="Assets\FPSHangar\Editor\Image Effects\AntialiasingAsPostEffectEditor.js" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="HermiteSplineController" expanded="True">
+              <Node name="SplineController.cs" selected="True" />
+            </Node>
+            <Node name="OVR" expanded="True">
+              <Node name="Scripts" expanded="True" />
+            </Node>
+          </Node>
+          <Node name="Assembly-CSharp-Editor" expanded="True">
+            <Node name="OVR" expanded="True">
+              <Node name="Editor" expanded="True" />
+            </Node>
+          </Node>
+          <Node name="Assembly-UnityScript" expanded="True">
+            <Node name="Mirror Reflection" expanded="True" />
+          </Node>
+          <Node name="Assembly-UnityScript-Editor" expanded="True">
+            <Node name="FPSHangar" expanded="True">
+              <Node name="Editor" expanded="True">
+                <Node name="Image Effects" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
