@@ -51,7 +51,7 @@ public class HeadsUpDisplay : VRGUI
         GUI.Label(new Rect(Screen.width/3.0f, Screen.height/3.0f, 200, 100), "<size=42>" + PlayerBehaviour.life + "</size>");
         GUI.Label(new Rect(Screen.width*(4.0f/7.0f), Screen.height/3.0f, 200, 100), "<size=38>Score: " + score + "</size>");
         int w = Screen.width; int h = Screen.height;
-        if (!InitialPosition.isGameStarted())
+        if (!InitialPosition.isGameStarted() && KinectInput.IsGotInitialData())
         {
             float countDownFloat = InitialPosition.getCountDown();
             int countDown = (int)countDownFloat;

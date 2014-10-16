@@ -2170,7 +2170,6 @@ MonoBehaviour:
   delay: 10
   toDestroy:
   - {fileID: 1119985358}
-  forwardDir: {fileID: 396993509}
 --- !u!114 &66641157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23506,7 +23505,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: eba6e9ae02de7d44d88073313ef49662, type: 2}
+  - {fileID: 2100000, guid: 0735fdec16a9a864db48cfbaa75f7986, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -58413,7 +58412,7 @@ Prefab:
     - target: {fileID: 2300002, guid: a8f5a7061a5567d46bc26f4d75fd2911, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: eba6e9ae02de7d44d88073313ef49662, type: 2}
+      objectReference: {fileID: 2100000, guid: 0735fdec16a9a864db48cfbaa75f7986, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8f5a7061a5567d46bc26f4d75fd2911, type: 2}
   m_RootGameObject: {fileID: 1539415674}

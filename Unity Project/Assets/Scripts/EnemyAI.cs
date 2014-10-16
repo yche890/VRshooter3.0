@@ -3,7 +3,7 @@ using System.Collections;
 /************************************************************************************
 
 This file describe the behaivour of an enemy bullet
-Auther:  Yang Chen, Henry Lee
+Auther:  Henry Lee
 
 ************************************************************************************/
 public class EnemyAI : MonoBehaviour {
