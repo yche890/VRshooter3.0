@@ -8,9 +8,9 @@ Auther:  Yang Chen, Henry Lee
 ************************************************************************************/
 public class PlayerBehaviour : MonoBehaviour {
 
-    public int setLife = 100;
+    public int setLife;
     public static int life;
-    
+    private static bool playerDead = false;
     // Use this for initialization
     void Start () {
         life = setLife;
@@ -26,8 +26,15 @@ public class PlayerBehaviour : MonoBehaviour {
             life = life - 1;
             //Debug.Log("I has been hit, HP - 1");
             if(life == 0){
-                Time.timeScale = 0;
+                playerDead = true;
+                Invoke("StopGame", 2.0f);
             }
         }
+    }
+    void StopGame(){
+        Time.timeScale = 0;
+    }
+    public static bool IsPlayerDead(){
+        return playerDead;
     }
 }

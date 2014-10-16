@@ -18,6 +18,7 @@ public class InitialPosition : MonoBehaviour {
     private static bool gameStart = false;
     private static float countDown;
     public GameObject[] toDestroy;
+    public GameObject forwardDir;
 
     void Start () {
         //testEnemy.GetComponentInChildren<EnemyGunScript>().setEnemyActive(true);
@@ -52,6 +53,11 @@ public class InitialPosition : MonoBehaviour {
     public void startMove(){
         Debug.Log("Game start!");
         gameStart = true;
+        //reset the orientation when start game
+        Vector3 fdRotation = forwardDir.transform.localEulerAngles;
+        fdRotation.y = 0;
+        forwardDir.transform.localEulerAngles = fdRotation;
+
         //HMD = Hmd.GetHmd();
         //HMD.DismissHSWDisplay();
         //KinectControlScript.AddIndexByOne();

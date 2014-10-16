@@ -86,7 +86,8 @@ MonoBehaviour:
   splines: {fileID: 0}
   timeTaken: 20
   delay: 1
-  enemies: []
+  enemies:
+  - {fileID: 0}
   explosion: {fileID: 100000, guid: bd943c792514675e464dfc7a8c26d3e0, type: 2}
   explosionEffect: {fileID: 8300000, guid: 986e2cbfd77239845af3134b0c4ee03f, type: 3}
   barrelToEnable: {fileID: 0}
