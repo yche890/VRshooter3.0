@@ -3,64 +3,76 @@ using System.Collections;
 using OVR;
 /************************************************************************************
 
-This file describe the behaivour of an enemy bullet
-Auther:  Yang Chen, Henry Lee
+This script initialize player's basic data beside the police car
+Detailed comment can be found in BattlePosition.cs
+Auther:  Yang Chen
 
 ************************************************************************************/
 public class InitialPosition : MonoBehaviour {
+    /// <summary>
+    /// The player.
+    /// </summary>
     public GameObject player;
-	//public GameObject splines;
-	//public float timeTaken;
+    /// <summary>
+    /// The delay between calibration done and game started.
+    /// </summary>
     public float delay;
-    //public GameObject testEnemy;
-    private bool canGo = false;
-    //public static Hmd HMD;
+    /// <summary>
+    /// Whether the spline has been activated.
+    /// </summary>
+    private bool splineActivated = false;
+    /// <summary>
+    /// The game started or not.
+    /// </summary>
     private static bool gameStart = false;
+    /// <summary>
+    /// The calibration is done or not.
+    /// </summary>
+    private bool calibrationDone = false;
+    /// <summary>
+    /// The count down counter.
+    /// </summary>
     private static float countDown;
+    /// <summary>
+    /// Mirror to destroy.
+    /// </summary>
     public GameObject[] toDestroy;
-    public GameObject forwardDir;
+
 
     void Start () {
         //testEnemy.GetComponentInChildren<EnemyGunScript>().setEnemyActive(true);
         player.GetComponentInChildren<KinectInput>().setRestrict(3);
         countDown = delay;
-        if (!canGo){
-            Invoke("startMove", delay);
-            canGo = true;
 
-        }
 
     }
     void Update(){
-        countDown -= Time.deltaTime;
-        if (!canGo){
-            if (KinectInput.GetResume()){
-                CancelInvoke("startMove");
-                startMove();
-                canGo = true;
+        calibrationDone = KinectInput.IsGotInitialData();
+        if (calibrationDone)
+        {
+            countDown -= Time.deltaTime;
+            if (!splineActivated && countDown <= 0.0f)
+            {
+               //CancelInvoke("startMove");
+               startMove();
+               splineActivated = true;
+
             }
         }
     }
     // the first pickup
+    /*
 	void OnTriggerEnter(Collider collider){
         //Debug.Log("InitialPickup hit : " + collider.gameObject.name);
 		if (collider.gameObject.tag == "Player"  ) {
             //testing
 
 		}
-	}
+	}*/
 
     public void startMove(){
         Debug.Log("Game start!");
         gameStart = true;
-        //reset the orientation when start game
-        Vector3 fdRotation = forwardDir.transform.localEulerAngles;
-        fdRotation.y = 0;
-        forwardDir.transform.localEulerAngles = fdRotation;
-
-        //HMD = Hmd.GetHmd();
-        //HMD.DismissHSWDisplay();
-        //KinectControlScript.AddIndexByOne();
         OVRDevice.HMD.DismissHSWDisplay();
         player.GetComponent<SplineController>().enabled = true;
         player.GetComponent<SplineInterpolator>().enabled = true;
@@ -73,9 +85,17 @@ public class InitialPosition : MonoBehaviour {
             Destroy(g, 0.5f);
         }
     }
+    /// <summary>
+    /// Ises the game started.
+    /// </summary>
+    /// <returns><c>true</c>, if game started was ised, <c>false</c> otherwise.</returns>
     public static bool isGameStarted(){
         return gameStart;
     }
+    /// <summary>
+    /// Gets the count down counter by headup display.
+    /// </summary>
+    /// <returns>The count down.</returns>
     public static float getCountDown(){
         return countDown;
 

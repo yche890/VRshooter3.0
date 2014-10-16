@@ -7,17 +7,58 @@ from Kinect
 Auther:  Yang Chen
 
 ************************************************************************************/
+/// <summary>
+/// Kinect control script.
+/// </summary>
 public class KinectControlScript : MonoBehaviour {
+    /// <summary>
+    /// Whether the player is moving between different battle positions
+    /// </summary>
     public bool changeScene = false;
+    /// <summary>
+    /// If the new right most position should be assigned
+    /// </summary>
     private bool shouldChangeRightMost = false;
+    /// <summary>
+    /// The height of the collider when crouch
+    /// </summary>
     public float crouchDeltaHeight = 0.6f;  //crouch height difference
+    /// <summary>
+    /// The left right dodge speed, m/s.
+    /// </summary>
     public float leftRightSpeed;
-    public float crouchSpeed;   //how many crouch action per second
-    private int state;  //state = stand, crouch etc
-    private bool processingCrouch = false;  
-    private float crouchDegree = 0.0f;  //crouchDegree between 0 and 1, 0 represent fully standing, 1 represent fully crouching
+    /// <summary>
+    /// The crouch speed, m/s.
+    /// </summary>
+    public float crouchSpeed;
+    /// <summary>
+    /// The player character's state
+    /// 0: stand.
+    /// 1: crouch
+    /// 2: left-dodge.
+    /// 3: right-dodge.
+    /// </summary>
+    private int state;
+    /// <summary>
+    /// Whether is processing crouch.
+    /// </summary>
+    private bool processingCrouch = false;
+    /// <summary>
+    /// The crouch degree between 0 and 1, 0 represent fully standing, 1 represent fully crouching
+    /// </summary>
+    private float crouchDegree = 0.0f;
+    /// <summary>
+    /// The surrender degree, when equals 1, start surrender.
+    /// currently disabled
+    /// </summary>
     private float surrenderDegree = 0.0f;
+    /// <summary>
+    /// The leftright offset of the character.
+    /// </summary>
     private float leftrightDegree = 0.0f;
+    /// <summary>
+    /// The index of the battle position.
+    /// </summary>
     private static int positionIndex = 0;
     
     
@@ -47,18 +88,38 @@ public class KinectControlScript : MonoBehaviour {
     //Guny = 13,
     //Gunz = 14
     
-    
+    /// <summary>
+    /// When perform crouch, each part of the body need to translate/rotate
+    /// The vector array store the information of standing
+    /// </summary>
     private Vector3[] standState = new Vector3[15];
+    /// <summary>
+    /// When perform crouch, each part of the body need to translate/rotate
+    /// The vector array store the information of crouching
+    /// </summary>
     private Vector3[] crouchState = new Vector3[15];
     
-    
+    /// <summary>
+    /// The character collider.
+    /// </summary>
     private CharacterController mainCollider;
+    /// <summary>
+    /// The position of swat, forward direction, and oculus rift controller.
+    /// </summary>
     private Transform swat,FD,OculusController;
     
-    
-    Transform lul,rul,ll,rl,lf,rf,ltb,rtb,sp1,nk,gun,bc;
+    /// <summary>
+    /// The Transform of left upper leg, right upper leg, left leg, right leg, left feet, right feet, left toe base, right toe base, spine1, neck, and gun.
+    /// </summary>
+    Transform lul,rul,ll,rl,lf,rf,ltb,rtb,sp1,nk,gun;
+    /// <summary>
+    /// The current position/rotation of left upper leg, right upper leg, left leg, right leg, left feet, right feet, left toe base, right toe base, spine1, neck, and gun.
+    /// </summary>
     private Vector3 lulC,rulC,llC,rlC,lfC,rfC,ltbC,rtbC,sp1C,nkC,gunC,ovrC,leftMost,rightMost,swatrightMostPosition,ORrightMostPosition;
     // Use this for initialization
+    /// <summary>
+    /// Find all the gameobject, components, and transforms
+    /// </summary>
     void Start () {
         
         state = stand;
@@ -104,6 +165,7 @@ public class KinectControlScript : MonoBehaviour {
         //Debug.Log("main controller: " + standState [OVRPControlP]);
         
         //load crouch position data
+        //these values are manually found during experiment
         crouchState = (Vector3[])standState.Clone();
         crouchState [LeftULegR].x = -95 ;
         crouchState [LeftLegR].x = 90;
@@ -123,7 +185,7 @@ public class KinectControlScript : MonoBehaviour {
         
         crouchState [OVRPControlP].y = 1.0f;
         
-        //load colliders
+        //load player collider
         var pc = GameObject.Find("ForwardDirection/swat/Body-swat");
         
         
@@ -144,8 +206,9 @@ public class KinectControlScript : MonoBehaviour {
     
     // Update is called once per frame
     void Update () {
-        
+
         changeScene = !SplineController.getStop();
+        // if moving to next battle position
         if (changeScene && !shouldChangeRightMost)
         {
             // set right most
@@ -154,7 +217,7 @@ public class KinectControlScript : MonoBehaviour {
             
             
         }
-        
+        // set rightmost position if arrive a new position
         if (shouldChangeRightMost && !changeScene)
         {
             //Debug.Log("Tryingto dosomething");
@@ -172,6 +235,7 @@ public class KinectControlScript : MonoBehaviour {
                 Debug.Log("failed with finding:");
             }
         }
+        // perform crouch, left right dodge 
         if (!changeScene)
         {
             if (!KinectInput.GetCrouch() && state == crouch)
@@ -221,9 +285,10 @@ public class KinectControlScript : MonoBehaviour {
                 processingCrouch = false;
             }
             
-            /*
-             * update transform value of body parts
-             */
+            /**************************************************************************************
+             * update position and rotation value of each body parts with respect to crouch degree...
+             **************************************************************************************/
+
             //LeftUpLeg
             lulC = Vector3.Lerp(standState [LeftULegR], crouchState [LeftULegR], crouchDegree);
             
@@ -283,27 +348,32 @@ public class KinectControlScript : MonoBehaviour {
             
             if (!processingCrouch && !changeScene)
             {
+                // if kinect detect right, and state of character is left
                 if (KinectInput.GetLeftRight() != -1 && state == leftStepIn)
                 {
                     
                     state = stand;
                 }
+                // if kinect detect left, and state of character is right
                 if (KinectInput.GetLeftRight() != 1 && state == rightStepIn)
                 {
                     
                     state = stand;
                 }
-                
+                // if kinect detect left, and state of character is standing
                 if (KinectInput.GetLeftRight() == -1 && state == stand)
                 {
                     state = leftStepIn;
                 }
+                // if kinect detect right, and state of character is standing
                 if (KinectInput.GetLeftRight() == 1 && state == stand)
                 {
                     state = rightStepIn;
                 }
                 
-                
+                /**********************************************************
+                 * updating the leftrightDegree...........................
+                 * ********************************************************/
                 if (state == leftStepIn)
                 {
                     //increate leftrightDegree
@@ -343,18 +413,10 @@ public class KinectControlScript : MonoBehaviour {
                     }
                     
                 }
-                /*
-            swat.localPosition = swat.localPosition + (swatrightMostPosition - swat.localPosition) * leftrightDegree;
-            OculusController.localPosition = OculusController.localPosition + (ORrightMostPosition - OculusController.localPosition) * leftrightDegree;
-            mainCollider.center = new Vector3(leftrightDegree, -0.35f, 0.0f);
-            float angle = -FD.transform.localEulerAngles.y;
-            Vector3 r1 = new Vector3()
-                Vector3 r2 = new Vector3()
-                    Vector3 r3 = new Vector3()
-
-            swat.localPosition = swat.localPosition*-F);
-*/
-                
+           
+             /**************************************************************************************
+             * update position value of player with respect to leftright degree...
+             **************************************************************************************/
                 Vector3 positioning = rightMost;
                 positioning.x = positioning.x - leftrightDegree - 1;
                 
@@ -370,16 +432,10 @@ public class KinectControlScript : MonoBehaviour {
                 trans.y = 0.0f;
                 transform.parent.Translate(trans);    
                 
-                //Debug.Log("RM"+swatrightMostPosition);
-                //Debug.Log("PL"+FD.localPosition);
-                //trans.y += 0.01f;
-                
-                
-                //
-                //gameObject.transform.localPosition = (rightMost - gameObject.transform.localPosition)*leftrightDegree + gameObject.transform.localPosition;
+               
                 
             }
-            //        Debug.Log("pos:\t" + gameObject.transform.localPosition);
+
             switch (state)
             {
                 case 0:
@@ -395,10 +451,11 @@ public class KinectControlScript : MonoBehaviour {
                     Debug.Log("state: rightStepIn");
                     break;
             }
-            //        Debug.Log("leftrightDegree"+leftrightDegree);
+
             
             
             //process pausing
+            //currently disabled
             
             if (KinectInput.GetSurrender() == true)
             {
@@ -430,6 +487,10 @@ public class KinectControlScript : MonoBehaviour {
             
         }
     }
+    /// <summary>
+    /// Sets the right most position when arrive a new battle position.
+    /// </summary>
+    /// <param name="pos">Position.</param>
     public void setRightMost(Vector3 pos){
         
         leftMost = pos;
@@ -439,22 +500,28 @@ public class KinectControlScript : MonoBehaviour {
         rightMost.x += 1;
         
     }
-    
-    
-    
+
+    /// <summary>
+    /// // decrease the size of collider immediately
+    /// </summary>
     public void DoCrouch() {
-        // decrease the size of collider
+
         mainCollider.height -= crouchDeltaHeight;
         mainCollider.center -= new Vector3(0,crouchDeltaHeight/2, 0);
-        
         state = crouch;
     }
+    /// <summary>
+    /// Resume the size of collider.
+    /// </summary>
     public void stopCrouching(){
         // resume the size of collider
         state = stand;
         mainCollider.height += crouchDeltaHeight;
         mainCollider.center += new Vector3(0,crouchDeltaHeight/2, 0);
     }
+    /// <summary>
+    /// Increment the index of battle position
+    /// </summary>
     public static void AddIndexByOne(){
         positionIndex += 1;
         Debug.Log("positionIndex" + positionIndex);

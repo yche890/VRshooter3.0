@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+/************************************************************************************
+
+This file describe the behaivour of player's body when hit by enemy
+Auther:  Kevin Du
+
+************************************************************************************/
 
 public class LightFlash : MonoBehaviour {
 	private GameObject leftlight3;

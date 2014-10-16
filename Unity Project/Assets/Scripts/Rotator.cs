@@ -2,7 +2,7 @@
 using System.Collections;
 /************************************************************************************
 
-This file describe the behaivour of an enemy bullet
+This file describe the rorating pickup trigger
 Auther:  Henry Lee
 
 ************************************************************************************/

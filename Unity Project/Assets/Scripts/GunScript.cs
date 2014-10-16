@@ -1,32 +1,64 @@
 ﻿using UnityEngine;
 using System.Collections;
 using OVR;
-/************************************************************************************
 
-This file describe the behaivour of an enemy bullet
-Auther:  Yang Chen
-
-************************************************************************************/
+/// <summary>
+/// Player's M4A1 gun script.
+/// </summary>
 public class GunScript : MonoBehaviour {
-
+    /// <summary>
+    /// The current bullet spawner.
+    /// </summary>
     private GameObject currentBulletSpawner;
+    /// <summary>
+    /// The camera position, used for aiming.
+    /// </summary>
     private Vector3     cameraPosition;
+    /// <summary>
+    /// The crosshair position.
+    /// </summary>
     private Vector3     crosshairPosition;
+    /// <summary>
+    /// The oculus rift's main menu, get crosshair from it.
+    /// </summary>
     private OVRMainMenu mm;
+    /// <summary>
+    /// The oculus rift's camera controller, get interpupillary distance(IPD)
+    /// </summary>
     private OVRCameraController occ;
+    /// <summary>
+    /// The cross hair.
+    /// </summary>
     private OVRCrosshair crossHair;
+    /// <summary>
+    /// The firing state.
+    /// </summary>
     private bool firing;
+    /// <summary>
+    /// The gun animation.
+    /// </summary>
     private GameObject GunAnimation;
+    /// <summary>
+    /// The bullet spawner position.
+    /// </summary>
     private Vector3 bulletSpawnPos;
+    /// <summary>
+    /// The bullet target.
+    /// </summary>
     private Vector3 bulletTarget;
-    // 1: right eye to aim,
-    // -1 left eye to aim; 0;
-    // 0: both eyes
-    public int usingWhichEyeToAim; 
+    /// <summary>
+    ///1: right eye to aim,
+    ///-1 left eye to aim;
+    ///0: both eyes
+    /// </summary>
+    public int usingWhichEyeToAim;
+    /// <summary>
+    /// The guneffect audio.
+    /// </summary>
     public AudioClip guneffect;
 
 
-	// Use this for initialization
+	// Use this for initialization, get components
 	void Start () {
 
         firing = false;
@@ -61,7 +93,9 @@ public class GunScript : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
+	/// <summary>
+    /// We get the position of crosshair, and the camera of player, draw a ray from camera through the crosshair, and the target will be there
+    /// </summary>
 	void Update () {
 
 
@@ -76,21 +110,16 @@ public class GunScript : MonoBehaviour {
         dir.Normalize();
 
         RaycastHit hit;
-        if (Physics.Raycast(cameraPosition, dir, out hit, 1000.0f))
+        /// testing
+        if (!Physics.Raycast(cameraPosition, dir, out hit, 1000.0f))
         {
-            if (!hit.collider.isTrigger)
-            {
-                //Debug.Log("Targeting in 10m: "+hit.collider.gameObject.name);
-                if (hit.collider.name == "Enemy2" && firing)
-                {
-                    //Debug.Log("Enemy2 should be hit!!!" + hit.point);
-
-                }
-            }
+            Debug.LogError("no target on the crosshair!");
+            bulletTarget = crosshairPosition;
         }
         bulletTarget = hit.point; //the target we are aiming
         SpawnBullet sb = currentBulletSpawner.GetComponent<SpawnBullet>();
         Debug.DrawLine(cameraPosition, bulletTarget, Color.white);
+        //get firing from Kinectinput
         if (KinectInput.GetFire() && !firing)
         {
             firing = true;
@@ -116,7 +145,7 @@ public class GunScript : MonoBehaviour {
        
 
             
-
+        //set the bullet target
         sb.SetSpawnTarget(bulletTarget);
 
 

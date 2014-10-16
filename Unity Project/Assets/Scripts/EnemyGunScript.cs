@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 /************************************************************************************
-
-This file describe the behaivour of an enemy bullet
-Auther:  Yang Chen, Henry Lee
-
+/// <summary>
+/// This file describe the behaivour of enemies gun
+/// Auther: Henry Lee, Yang Chen
+/// </summary>
 ************************************************************************************/
 public class EnemyGunScript : MonoBehaviour {
-
+    /// <summary>
+    /// The current bullet spawner.
+    /// </summary>
     private GameObject currentBulletSpawner;
     private GameObject player;
     private Vector3 playerPosition;
+    /// <summary>
+    /// The position of gun muzzle
+    /// </summary>
     private GameObject self;
     private Vector3 selfPosition;
-    private Vector3     cameraPosition;
-    private Vector3     crosshairPosition;
     private bool firing;
     private GameObject GunAnimation;
     private Vector3 bulletSpawnPos;
@@ -98,13 +101,13 @@ public class EnemyGunScript : MonoBehaviour {
         bulletTarget = playerPosition;//hit.point; //the target we are aiming
         //Debug.Log(bulletTarget);
         EnemySpawnBullet sb = currentBulletSpawner.GetComponent<EnemySpawnBullet>();
-        //Debug.DrawLine(cameraPosition, bulletTarget, Color.white);
+
 
         if (enemyActive && !firing)
         {
             firing = true;
             sb.setAnimation(GunAnimation);
-            sb.startShooting(2.0f, 3.0f);
+            sb.InvokeBullets(2.0f, 3.0f);
         } else if(!enemyActive)
         {
             firing = false;

@@ -2,7 +2,8 @@
 using System.Collections;
 /************************************************************************************
 
-This file describe the behaivour of an enemy bullet
+This file describe the behaivour of enemy gun muzzle
+Detailed comment can be found in SpawnBullet.cs
 Auther:  Yang Chen, Henry Lee
 
 ************************************************************************************/
@@ -14,17 +15,10 @@ public class EnemySpawnBullet : MonoBehaviour {
     private GameObject light;
     private GameObject GunAnimation;
     public AudioClip soundeffect;
-	// Use this for initialization
+	// Use this for initialization, setup the frequency of shooting
 	void Start () {
         timeStamp = 1 / BulletPerSec;
-        //var a = gameObject.transform.parent.Find("Point light").gameObject;
-        //if (a != null)
-        //{
-        //    light = a;
-        //} else
-        //{
-        //    Debug.Log("cant find light object for gun");
-        //}
+
 	}
 	
 	// Update is called once per frame
@@ -52,13 +46,13 @@ public class EnemySpawnBullet : MonoBehaviour {
     }
 
     public void startShooting(){
-        startShooting(0.1f, timeStamp);
+        InvokeBullets(0.1f, timeStamp);
     }
     public void stopShooting(){
         CancelInvoke("Spawn");
     }
 
-    public void startShooting(float delay, float period){
+    public void InvokeBullets(float delay, float period){
         InvokeRepeating("Spawn", delay, period);
 
     }

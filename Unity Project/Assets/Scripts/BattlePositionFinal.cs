@@ -2,7 +2,8 @@
 using System.Collections;
 /************************************************************************************
 
-This file describe the behaivour of an enemy bullet
+This script initialize enemies when player arrives the final boss position
+Detailed comments can be found in BattlePosition.cs
 Auther:  Yang Chen, Henry Lee
 
 ************************************************************************************/
@@ -12,16 +13,26 @@ public class BattlePositionFinal: MonoBehaviour {
 	public float timeTaken;
     public float delay;
     public GameObject[] enemies;
-    private bool canGo = false;
+    private bool splineActivated = false;
     public GameObject explosion;
     public AudioClip explosionEffect;
     private static bool gameOver =false;
     private bool pickedUp = false;
     public GameObject barrelToEnable;
+    // the final boss
     private GameObject finalBoss;
-    public int dodgeRestrict;   //1:only left  2:only right 3: no left or right 0: no limit
+    /// <summary>
+    /// The dodge restrict.
+    /// 1:only left-dodge  2:only right-dodge 3: no left or right 0: no limit
+    /// </summary>
+    public int dodgeRestrict;
+    /// <summary>
+    /// If the message of "boss is coming" should be displayed
+    /// </summary>
     private static bool showBossComing = false;
-    // the first pickup
+    /*********
+     * Inactivate all enemies when game started
+     */
     void Start(){
         foreach (GameObject g in enemies)
         {
@@ -32,6 +43,10 @@ public class BattlePositionFinal: MonoBehaviour {
             }
         }
     }
+    /*********
+     * when spline controller bring the player to the new battle position
+     * setup left-right dodge restriction, setup right-most position, enemies appear, and activate barrel
+     */
 	void OnTriggerEnter(Collider collider){
 
         if (collider.gameObject.tag == "Player") {
@@ -55,17 +70,21 @@ public class BattlePositionFinal: MonoBehaviour {
         if (checkEnemyAllDie() && pickedUp)
         {
             Debug.LogError("enemy all dead! game over");
-            if (!canGo)
+            if (!splineActivated)
             {
                 if (explosion != null){
                     Invoke("Boom", delay + 1.0f);
                 }
                 Invoke("startMove", delay);
-                canGo = true;
+                splineActivated = true;
             }
             gameOver = true;
         }
     }
+
+    /*********
+     * Activate spline controller, player moves back to the police car
+     */
     public void startMove(){
         pickedUp = false;
         //player.GetComponent<SplineController>().enabled = true;
@@ -80,6 +99,9 @@ public class BattlePositionFinal: MonoBehaviour {
         Instantiate(explosion,pos ,Quaternion.identity);
         AudioSource.PlayClipAtPoint(explosionEffect, transform.position);
     }
+    /*********
+     * Disable the headup message "boss coming"
+     */
     void DisableBossComing(){
         showBossComing = false;
     }
@@ -96,6 +118,12 @@ public class BattlePositionFinal: MonoBehaviour {
     public static bool IsgameOver(){
         return gameOver;
     }
+
+    /// <summary>
+    /// Determines if is boss coming.
+    /// used by headup display script, check if "boss is coming" should be displayed or not
+    /// </summary>
+    /// <returns><c>true</c> if is boss coming; otherwise, <c>false</c>.</returns>
     public static bool IsBossComing(){
         return showBossComing;
     }

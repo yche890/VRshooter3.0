@@ -2,7 +2,7 @@
 using System.Collections;
 /************************************************************************************
 
-This file describe the behaivour of an enemy bullet
+This file is used for testing? 
 Auther:  Yang Chen
 
 ************************************************************************************/
