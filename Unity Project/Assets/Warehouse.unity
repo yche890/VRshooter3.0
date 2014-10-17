@@ -789,6 +789,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   barrelToEnable: {fileID: 0}
   dodgeRestrict: 1
+  isGoingFinal: 0
 --- !u!114 &22261026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27408,6 +27409,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   barrelToEnable: {fileID: 0}
   dodgeRestrict: 2
+  isGoingFinal: 0
 --- !u!114 &462690020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46064,6 +46066,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   barrelToEnable: {fileID: 699965687}
   dodgeRestrict: 2
+  isGoingFinal: 0
 --- !u!114 &800763102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53840,6 +53843,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   barrelToEnable: {fileID: 1779244286}
   dodgeRestrict: 1
+  isGoingFinal: 1
 --- !u!114 &914940670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56635,6 +56639,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   barrelToEnable: {fileID: 0}
   dodgeRestrict: 1
+  isGoingFinal: 0
 --- !u!114 &940968148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70279,6 +70284,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   barrelToEnable: {fileID: 0}
   dodgeRestrict: 1
+  isGoingFinal: 0
 --- !u!114 &1112872147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73732,6 +73738,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   barrelToEnable: {fileID: 1316133789}
   dodgeRestrict: 0
+  isGoingFinal: 0
 --- !u!114 &1177179692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81325,6 +81332,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   barrelToEnable: {fileID: 1297708474}
   dodgeRestrict: 1
+  isGoingFinal: 0
 --- !u!114 &1300608078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91443,6 +91451,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   barrelToEnable: {fileID: 0}
   dodgeRestrict: 3
+  isGoingFinal: 0
 --- !u!114 &1424676671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95642,6 +95651,10 @@ Prefab:
       propertyPath: barrelToEnable
       value: 
       objectReference: {fileID: 1779244286}
+    - target: {fileID: 11400000, guid: f111a423f28999c4999084910099985a, type: 2}
+      propertyPath: isGoingFinal
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f111a423f28999c4999084910099985a, type: 2}
   m_RootGameObject: {fileID: 914940667}
@@ -120830,6 +120843,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 1283635832}
   barrelToEnable: {fileID: 0}
   dodgeRestrict: 1
+  isGoingFinal: 0
 --- !u!114 &1861269203
 MonoBehaviour:
   m_ObjectHideFlags: 0

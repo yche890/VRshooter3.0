@@ -117,13 +117,4 @@ public class BattlePositionFinal: MonoBehaviour {
         return gameOver;
     }
 
-    /// <summary>
-    /// Determines if is boss coming.
-    /// used by headup display script, check if "boss is coming" should be displayed or not
-    /// </summary>
-    /// <returns><c>true</c> if is boss coming; otherwise, <c>false</c>.</returns>
-    public static bool IsBossComing(){
-        return showBossComing;
-    }
-
 }

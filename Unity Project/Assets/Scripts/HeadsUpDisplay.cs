@@ -48,10 +48,12 @@ public class HeadsUpDisplay : VRGUI
 
 
 
-
-        GUI.Label(new Rect(Screen.width/3.0f, Screen.height/3.0f, 200, 100), "<size=42>" + PlayerBehaviour.life + "</size>");
-        GUI.Label(new Rect(Screen.width*(4.0f/7.0f), Screen.height/3.0f, 200, 100), "<size=38>Score: " + score + "</size>");
-        int w = Screen.width; int h = Screen.height;
+        if (!BattlePositionFinal.IsgameOver())
+        {
+            GUI.Label(new Rect(Screen.width / 3.0f, Screen.height / 3.0f, 200, 100), "<size=42>" + PlayerBehaviour.life + "</size>");
+            GUI.Label(new Rect(Screen.width * (4.0f / 7.0f), Screen.height / 3.0f, 200, 100), "<size=38>Score: " + score + "</size>");
+        
+        }int w = Screen.width; int h = Screen.height;
         if (!InitialPosition.isGameStarted() && KinectInput.IsGotInitialData())
         {
             float countDownFloat = InitialPosition.getCountDown();
@@ -72,6 +74,11 @@ public class HeadsUpDisplay : VRGUI
         if (BattlePositionFinal.IsgameOver())
         {
             GUI.Label(new Rect(w / 2 - 300, h / 2 - 200, 600, 400), "<size=60>Mission Accomplished!</size>");
+        }
+        if (!KinectInput.IsGotInitialData())
+        {
+            GUI.Label(new Rect(w / 2 - 300, h - 350, 600, 400), "<size=42>Pre-game calibration for Kinect</size>");
+            GUI.Label(new Rect(w / 2 - 300, h - 300, 600, 400), "<size=42>Face to Kinect, show hands beside ears</size>");
         }
         float height = KinectInput.playerHeight;
         GUI.Label(new Rect(0, 0, 300, 200), "<size=42>Height: " + height +"</size>");

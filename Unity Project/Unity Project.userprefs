@@ -1,16 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BattlePositionFinal.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\Yang\Desktop\VRshooter3.0\Unity Project\Assets\OVR\Scripts\OVRCamera.cs">
     <Files>
-      <File FileName="Assets\Scripts\BattlePositionFinal.cs" Line="51" Column="9" />
-      <File FileName="Assets\Scripts\KinectInput.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\KinectInput.cs" Line="162" Column="42" />
+      <File FileName="Assets\Scripts\BattlePositionFinal.cs" Line="21" Column="1" />
+      <File FileName="Assets\Scripts\KinectInput.cs" Line="435" Column="1" />
       <File FileName="Assets\Scripts\KinectControlScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Rotator.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GunScript.cs" Line="1" Column="1" />
       <File FileName="Assets\OVR\Scripts\OVRDevice.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Barrel.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\BattlePosition.cs" Line="114" Column="10" />
-      <File FileName="Assets\Scripts\HeadsUpDisplay.cs" Line="89" Column="9" />
+      <File FileName="Assets\Scripts\BattlePosition.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HeadsUpDisplay.cs" Line="81" Column="95" />
+      <File FileName="c:\Users\Yang\Desktop\VRshooter3.0\Unity Project\Assets\OVR\Scripts\OVRCamera.cs" Line="58" Column="82" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,11 +21,9 @@
             <Node name="OVR" expanded="True">
               <Node name="Scripts" expanded="True" />
             </Node>
-            <Node name="Scripts" expanded="True">
-              <Node name="BattlePositionFinal.cs" selected="True" />
-            </Node>
+            <Node name="Scripts" expanded="True" />
           </Node>
-          <Node name="Assembly-CSharp-Editor" expanded="True">
+          <Node name="Assembly-CSharp-Editor" expanded="True" selected="True">
             <Node name="OVR" expanded="True">
               <Node name="Editor" expanded="True" />
             </Node>

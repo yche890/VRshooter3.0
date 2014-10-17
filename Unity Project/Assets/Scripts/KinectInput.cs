@@ -94,7 +94,7 @@ public class KinectInput : MonoBehaviour {
     /// <summary>
     /// The position of left feet, right feet and so on.
     /// </summary>
-    private Vector3 leftFeet, rightFeet, hip, shoulder, leftHand, rightHand, sp, head; 
+    private Vector3 leftFeet, rightFeet, hip, shoulder, leftHand, rightHand, sp, head, shoulderL, shoulderR; 
     // Use this for initialization
     void Start () {
         var pc = GameObject.Find("OurPlayer/OVRPlayerController");
@@ -134,6 +134,14 @@ public class KinectInput : MonoBehaviour {
             shoulder.x = sw.bonePos [0, ShoulderCenter].x;
             shoulder.y = sw.bonePos [0, ShoulderCenter].y;
             shoulder.z = sw.bonePos [0, ShoulderCenter].z;
+            
+            shoulderL.x = sw.bonePos [0, ShoulderLeft].x;
+            shoulderL.y = sw.bonePos [0, ShoulderLeft].y;
+            shoulderL.z = sw.bonePos [0, ShoulderLeft].z;
+            
+            shoulderR.x = sw.bonePos [0, ShoulderRight].x;
+            shoulderR.y = sw.bonePos [0, ShoulderRight].y;
+            shoulderR.z = sw.bonePos [0, ShoulderRight].z;
 
             hip.x = sw.bonePos [0, HipCenter].x;
             hip.y = sw.bonePos [0, HipCenter].y;
@@ -151,12 +159,13 @@ public class KinectInput : MonoBehaviour {
             if (IsDoingCalibrationAction()){
                 calibrationProcess += Time.deltaTime;
             }
-            if (calibrationProcess >= 1.0f){
+            if (calibrationProcess >= 1.5f){
                 gotInitialData = true;
                 playerHeight = (Vector3.Distance(head, rightFeet) + Vector3.Distance(head, leftFeet)) / 2;
                 playerCentreX = CalcPlayerSpineX();
-                Debug.Log("player height:" + playerHeight + "\t\tcentre " + playerCentreX);
-                leftRightSensitivity = (rightHand.x - leftHand.x) / 2;
+
+                leftRightSensitivity = shoulderR.x - shoulderL.x;
+                Debug.Log("player height:" + playerHeight + "\tcentre:" + playerCentreX + "\tthresholdX:" + leftRightSensitivity);
                 //reset the orientation
                 OVRDevice.ResetOrientation();
             }
@@ -325,10 +334,12 @@ public class KinectInput : MonoBehaviour {
         // if height is detected
         if (Vector3.Distance(head, leftFeet) > 0.8 && Vector3.Distance(head, rightFeet) > 0.8)
         {
-            // if hands are beside head
+            // if hands are beside ears
             if (head.y - leftHand.y < 0.1 && leftHand.y - rightHand.y < 0.1)
             {
-                result = true;
+                //if hands are not too close to the ears
+                if (leftHand.x < shoulderL.x && rightHand.x > shoulderR.x)
+                    result = true;
             }
         }
         return result;
