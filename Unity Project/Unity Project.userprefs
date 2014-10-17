@@ -1,15 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyAI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BattlePositionFinal.cs">
     <Files>
-      <File FileName="c:\Users\Yang\Desktop\VRshooter3.0\Unity Project\Assets\OVR\Editor\OVRCameraControllerEditor.cs" Line="96" Column="13" />
-      <File FileName="Assets\OVR\Scripts\OVRCameraController.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\Yang\Desktop\VRshooter3.0\Unity Project\Assets\OVR\Editor\OVRPlayerControllerEditor.cs" Line="21" Column="66" />
-      <File FileName="Assets\OVR\Scripts\OVRPlayerController.cs" Line="20" Column="1" />
-      <File FileName="Assets\OVR\Scripts\OVRMainMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\OVR\Editor\OVRBuild.cs" Line="1" Column="1" />
-      <File FileName="Assets\OVR\Editor\OVRDeviceEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI.cs" Line="21" Column="2" />
+      <File FileName="Assets\Scripts\BattlePositionFinal.cs" Line="51" Column="9" />
+      <File FileName="Assets\Scripts\KinectInput.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\KinectControlScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Rotator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GunScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\OVR\Scripts\OVRDevice.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Barrel.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BattlePosition.cs" Line="114" Column="10" />
+      <File FileName="Assets\Scripts\HeadsUpDisplay.cs" Line="89" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,9 +19,11 @@
             <Node name="OVR" expanded="True">
               <Node name="Scripts" expanded="True" />
             </Node>
-            <Node name="Scripts" expanded="True" />
+            <Node name="Scripts" expanded="True">
+              <Node name="BattlePositionFinal.cs" selected="True" />
+            </Node>
           </Node>
-          <Node name="Assembly-CSharp-Editor" expanded="True" selected="True">
+          <Node name="Assembly-CSharp-Editor" expanded="True">
             <Node name="OVR" expanded="True">
               <Node name="Editor" expanded="True" />
             </Node>

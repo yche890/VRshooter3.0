@@ -41,7 +41,11 @@ public class BattlePosition: MonoBehaviour {
     /// The dodge restrict.
     /// 1:only left-dodge  2:only right-dodge 3: no left or right 0: no limit
     /// </summary>
-    public int dodgeRestrict;   
+    public int dodgeRestrict;
+    /// <summary>
+    /// Is this the last battle position before final boss.
+    /// </summary>
+    public bool isGoingFinal = false;
 
     /// <summary>
     /// Inactivate all enemies when game started
@@ -104,7 +108,10 @@ public class BattlePosition: MonoBehaviour {
     public void startMove(){
         //player.GetComponent<SplineController>().enabled = true;
         //KinectControlScript.AddIndexByOne();
-
+        if (isGoingFinal)
+        {
+            HeadsUpDisplay.shoudShowFinalBossMessage();
+        }
         player.GetComponent<SplineController>().SplineRoot = splines;
         player.GetComponent<SplineController>().Duration = timeTaken;
 

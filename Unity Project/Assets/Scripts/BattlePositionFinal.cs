@@ -54,7 +54,7 @@ public class BattlePositionFinal: MonoBehaviour {
             //Debug.LogError("pickup trigger collide");
             player.GetComponentInChildren<KinectInput>().setRestrict(dodgeRestrict);
             showBossComing = true;
-            Invoke("DisableBossComing" , 3.0f);
+            HeadsUpDisplay.DisableBossComing();
             foreach (GameObject g in enemies){
                 if(g != null){
                     g.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
@@ -102,9 +102,7 @@ public class BattlePositionFinal: MonoBehaviour {
     /*********
      * Disable the headup message "boss coming"
      */
-    void DisableBossComing(){
-        showBossComing = false;
-    }
+
     public bool checkEnemyAllDie(){
         bool result = true;
 

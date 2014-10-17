@@ -7,6 +7,7 @@ public class HeadsUpDisplay : VRGUI
     public Texture texture;
     private int healthTemp = 100;
     private static int score = 0;
+    private static bool IsBossComing = false;
     int count = 0;
 
     public override void OnVRGUI()
@@ -60,7 +61,7 @@ public class HeadsUpDisplay : VRGUI
         {
             GUI.Label(new Rect(w / 2 - 300, h - 350, 600, 400), "<size=120>" + dodgeHint + "</size>");
         }
-        if (BattlePositionFinal.IsBossComing())
+        if (IsBossComing)
         {
             GUI.Label(new Rect(w / 2 - 300, h / 2 - 200, 600, 400), "<size=60>Final Boss Coming!</size>");
         }
@@ -82,5 +83,12 @@ public class HeadsUpDisplay : VRGUI
 
     public static void enemyKilled(){
         score += 10;
+    }
+    public static void shoudShowFinalBossMessage(){
+        IsBossComing = true;
+
+    }
+    public static void DisableBossComing(){
+        IsBossComing = false;
     }
 }

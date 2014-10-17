@@ -453,6 +453,7 @@ public class OVRCameraController : MonoBehaviour
 		// Get our initial world orientation of the cameras from the scene (we can grab it from 
 		// the set FollowOrientation object or this OVRCameraController gameObject)
 		if(FollowOrientation != null)
+            //OrientationOffset = transform.rotation;
 			OrientationOffset = FollowOrientation.rotation;
 		else
 			OrientationOffset = transform.rotation;

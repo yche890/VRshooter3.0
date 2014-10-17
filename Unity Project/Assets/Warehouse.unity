@@ -33213,8 +33213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b7ce4fabe569f44aaedecf8c981c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
-  explosionEffect: {fileID: 0}
+  explosion: {fileID: 100004, guid: 169b10ce10f4327cb9f40f6b117ed8d7, type: 2}
+  explosionEffect: {fileID: 8300000, guid: 986e2cbfd77239845af3134b0c4ee03f, type: 3}
   enemyToKill: {fileID: 0}
 --- !u!65 &562260178
 BoxCollider:
@@ -40101,9 +40101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b7ce4fabe569f44aaedecf8c981c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
-  explosionEffect: {fileID: 0}
-  enemyToKill: {fileID: 0}
+  explosion: {fileID: 100004, guid: 169b10ce10f4327cb9f40f6b117ed8d7, type: 2}
+  explosionEffect: {fileID: 8300000, guid: 986e2cbfd77239845af3134b0c4ee03f, type: 3}
+  enemyToKill: {fileID: 1095648915}
 --- !u!64 &699965691
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -80975,9 +80975,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b7ce4fabe569f44aaedecf8c981c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
-  explosionEffect: {fileID: 0}
-  enemyToKill: {fileID: 0}
+  explosion: {fileID: 100004, guid: 169b10ce10f4327cb9f40f6b117ed8d7, type: 2}
+  explosionEffect: {fileID: 8300000, guid: 986e2cbfd77239845af3134b0c4ee03f, type: 3}
+  enemyToKill: {fileID: 1143747955}
 --- !u!64 &1297708478
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82975,9 +82975,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b7ce4fabe569f44aaedecf8c981c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
-  explosionEffect: {fileID: 0}
-  enemyToKill: {fileID: 0}
+  explosion: {fileID: 100004, guid: 169b10ce10f4327cb9f40f6b117ed8d7, type: 2}
+  explosionEffect: {fileID: 8300000, guid: 986e2cbfd77239845af3134b0c4ee03f, type: 3}
+  enemyToKill: {fileID: 667914283}
 --- !u!1 &1316177358
 GameObject:
   m_ObjectHideFlags: 0
@@ -116708,9 +116708,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b7ce4fabe569f44aaedecf8c981c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
-  explosionEffect: {fileID: 0}
-  enemyToKill: {fileID: 0}
+  explosion: {fileID: 100004, guid: 169b10ce10f4327cb9f40f6b117ed8d7, type: 2}
+  explosionEffect: {fileID: 8300000, guid: 986e2cbfd77239845af3134b0c4ee03f, type: 3}
+  enemyToKill: {fileID: 1783707717}
 --- !u!65 &1779244292
 BoxCollider:
   m_ObjectHideFlags: 0

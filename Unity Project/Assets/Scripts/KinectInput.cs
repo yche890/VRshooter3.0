@@ -5,6 +5,10 @@ using System.Collections;
 /// </summary>
 public class KinectInput : MonoBehaviour {
     /// <summary>
+    /// The oculus rift device, for initializing orientation offset
+    /// </summary>
+    private OVRDevice device;
+    /// <summary>
     /// The dodge restrict.
     /// 1:only left-dodge
     /// 2:only right-dodge
@@ -60,6 +64,11 @@ public class KinectInput : MonoBehaviour {
     /// </summary>
     public SkeletonWrapper sw;  
     /// <summary>
+    /// The calibration process between 0 and 1.
+    /// When it is 1, calibration is done
+    /// </summary>
+    private float calibrationProcess;
+    /// <summary>
     /// The indexes of points from Kinect's skeleton wrapper.
     /// </summary>
     private int HipCenter = 0,
@@ -88,7 +97,9 @@ public class KinectInput : MonoBehaviour {
     private Vector3 leftFeet, rightFeet, hip, shoulder, leftHand, rightHand, sp, head; 
     // Use this for initialization
     void Start () {
-        
+        var pc = GameObject.Find("OurPlayer/OVRPlayerController");
+        device = pc.GetComponentInChildren<OVRDevice>();
+
     }
     
     // Update is called once per frame
@@ -134,16 +145,22 @@ public class KinectInput : MonoBehaviour {
 
         }
         //looking for initial data i.e players height
-        //to-do
+        //
         if (!gotInitialData)
         {
             if (IsDoingCalibrationAction()){
+                calibrationProcess += Time.deltaTime;
+            }
+            if (calibrationProcess >= 1.0f){
                 gotInitialData = true;
                 playerHeight = (Vector3.Distance(head, rightFeet) + Vector3.Distance(head, leftFeet)) / 2;
                 playerCentreX = CalcPlayerSpineX();
                 Debug.Log("player height:" + playerHeight + "\t\tcentre " + playerCentreX);
                 leftRightSensitivity = (rightHand.x - leftHand.x) / 2;
+                //reset the orientation
+                OVRDevice.ResetOrientation();
             }
+
         }
         else
         {
