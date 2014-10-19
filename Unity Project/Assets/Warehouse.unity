@@ -40062,7 +40062,7 @@ GameObject:
   - 114: {fileID: 699965690}
   - 65: {fileID: 699965689}
   m_Layer: 0
-  m_Name: BarrelRed(7)
+  m_Name: BarrelRed(6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46064,7 +46064,7 @@ MonoBehaviour:
   explosion: {fileID: 0}
   explosionEffect: {fileID: 0}
   objectToDestroy: {fileID: 0}
-  barrelToEnable: {fileID: 699965687}
+  barrelToEnable: {fileID: 0}
   dodgeRestrict: 2
   isGoingFinal: 0
 --- !u!114 &800763102
@@ -56637,7 +56637,7 @@ MonoBehaviour:
   explosion: {fileID: 0}
   explosionEffect: {fileID: 0}
   objectToDestroy: {fileID: 0}
-  barrelToEnable: {fileID: 0}
+  barrelToEnable: {fileID: 699965687}
   dodgeRestrict: 1
   isGoingFinal: 0
 --- !u!114 &940968148
@@ -82910,6 +82910,7 @@ GameObject:
   - 23: {fileID: 1316133792}
   - 64: {fileID: 1316133791}
   - 114: {fileID: 1316133794}
+  - 65: {fileID: 1316133795}
   m_Layer: 0
   m_Name: BarrelRed(2)
   m_TagString: Untagged
@@ -82938,7 +82939,7 @@ MeshCollider:
   m_GameObject: {fileID: 1316133789}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -82986,6 +82987,18 @@ MonoBehaviour:
   explosion: {fileID: 100004, guid: 169b10ce10f4327cb9f40f6b117ed8d7, type: 2}
   explosionEffect: {fileID: 8300000, guid: 986e2cbfd77239845af3134b0c4ee03f, type: 3}
   enemyToKill: {fileID: 667914283}
+--- !u!65 &1316133795
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1316133789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .535032034, y: .536532044, z: .786737025}
+  m_Center: {x: -.00150104391, y: -9.58294095e-07, z: .397906482}
 --- !u!1 &1316177358
 GameObject:
   m_ObjectHideFlags: 0
@@ -102130,7 +102143,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 5755d81d1197def499244a4a62b60ab8, type: 2}
       propertyPath: barrelToEnable
       value: 
-      objectReference: {fileID: 699965687}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5755d81d1197def499244a4a62b60ab8, type: 2}
   m_RootGameObject: {fileID: 800763099}
@@ -109522,6 +109535,10 @@ Prefab:
       propertyPath: enemies.Array.data[1]
       value: 
       objectReference: {fileID: 1095648915}
+    - target: {fileID: 11400000, guid: 464e9c670b107324c8f2514bd0c213d9, type: 2}
+      propertyPath: barrelToEnable
+      value: 
+      objectReference: {fileID: 699965687}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 464e9c670b107324c8f2514bd0c213d9, type: 2}
   m_RootGameObject: {fileID: 940968145}
