@@ -9,7 +9,7 @@ Auther:  Yang Chen, Henry Lee
 ************************************************************************************/
 public class EnemySpawnBullet : MonoBehaviour {
     public GameObject bullet;
-    public float BulletPerSec = 1.0f;
+    public float BulletPerSec;
     private Vector3 SpawnTarget;
     private float timeStamp;
     private GameObject light;
@@ -17,7 +17,7 @@ public class EnemySpawnBullet : MonoBehaviour {
     public AudioClip soundeffect;
 	// Use this for initialization, setup the frequency of shooting
 	void Start () {
-        timeStamp = 1 / BulletPerSec;
+        timeStamp = 1.0f / BulletPerSec;
 
 	}
 	

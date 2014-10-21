@@ -65,7 +65,8 @@ public class HeadsUpDisplay : VRGUI
         }
         if (IsBossComing)
         {
-            GUI.Label(new Rect(w / 2 - 300, h / 2 - 200, 600, 400), "<size=60>Final Boss Coming!</size>");
+            GUI.Label(new Rect(w / 2 - 300, h / 2 - 180, 600, 400), "<size=60>Final Boss Coming!</size>");
+            Debug.Log("show final boss msg!");
         }
         if (PlayerBehaviour.IsPlayerDead())
         {
@@ -78,7 +79,8 @@ public class HeadsUpDisplay : VRGUI
         if (!KinectInput.IsGotInitialData())
         {
             GUI.Label(new Rect(w / 2 - 300, h - 350, 600, 400), "<size=42>Pre-game calibration for Kinect</size>");
-            GUI.Label(new Rect(w / 2 - 300, h - 300, 600, 400), "<size=42>Face to Kinect, show hands beside ears</size>");
+            GUI.Label(new Rect(w / 2 - 300, h - 300, 600, 400), "<size=42>Face to Kinect</size>");
+            GUI.Label(new Rect(w / 2 - 300, h - 250, 600, 400), "<size=42>Show hands beside ears</size>");
         }
         float height = KinectInput.playerHeight;
         GUI.Label(new Rect(0, 0, 300, 200), "<size=42>Height: " + height +"</size>");

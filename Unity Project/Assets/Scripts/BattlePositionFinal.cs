@@ -30,10 +30,15 @@ public class BattlePositionFinal: MonoBehaviour {
     /// If the message of "boss is coming" should be displayed
     /// </summary>
     private static bool showBossComing = false;
+    /// <summary>
+    /// The boss position.
+    /// </summary>
+    private Vector3 Bosspos;
     /*********
      * Inactivate all enemies when game started
      */
     void Start(){
+
         foreach (GameObject g in enemies)
         {
             if (g != null)
@@ -42,6 +47,7 @@ public class BattlePositionFinal: MonoBehaviour {
                 finalBoss = g;
             }
         }
+        Bosspos = finalBoss.transform.position;
     }
     /*********
      * when spline controller bring the player to the new battle position
@@ -95,8 +101,8 @@ public class BattlePositionFinal: MonoBehaviour {
         player.GetComponent<SplineController>().StartSpline();
     }
     void Boom () {
-        Vector3 pos = finalBoss.transform.position;
-        Instantiate(explosion,pos ,Quaternion.identity);
+
+        Instantiate(explosion,Bosspos ,Quaternion.identity);
         AudioSource.PlayClipAtPoint(explosionEffect, transform.position);
     }
     /*********
