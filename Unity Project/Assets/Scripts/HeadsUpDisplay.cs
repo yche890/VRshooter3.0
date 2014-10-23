@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
+ * This script describe the behaviour of the head-up display
+ * Author Henry Lee, Yang Chen
+ */
 public class HeadsUpDisplay : VRGUI
 {
     public GUISkin skin;
@@ -26,7 +29,7 @@ public class HeadsUpDisplay : VRGUI
             }
         }
 
-
+        //The left right arrow indicating which left/right dodge is available
         //"<size=40>"++"</size>"
         int dodgeRestrict = KinectInput.getLeftRightRestrict();
         string dodgeHint = "";
@@ -47,7 +50,7 @@ public class HeadsUpDisplay : VRGUI
 
 
 
-
+        //Display other information
         if (!BattlePositionFinal.IsgameOver())
         {
             GUI.Label(new Rect(Screen.width / 3.0f, Screen.height / 3.0f, 200, 100), "<size=42>" + PlayerBehaviour.life + "</size>");
@@ -75,6 +78,7 @@ public class HeadsUpDisplay : VRGUI
         if (BattlePositionFinal.IsgameOver())
         {
             GUI.Label(new Rect(w / 2 - 300, h / 2 - 200, 600, 400), "<size=60>Mission Accomplished!</size>");
+            GUI.Label(new Rect(Screen.width * (4.0f / 7.0f), Screen.height / 3.0f, 200, 100), "<size=38>Score: " + score + "</size>");
         }
         if (!KinectInput.IsGotInitialData())
         {

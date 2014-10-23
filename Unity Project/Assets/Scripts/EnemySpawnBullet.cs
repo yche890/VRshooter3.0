@@ -4,7 +4,7 @@ using System.Collections;
 
 This file describe the behaivour of enemy gun muzzle
 Detailed comment can be found in SpawnBullet.cs
-Auther:  Yang Chen, Henry Lee
+Auther:  Henry Lee, Yang Chen
 
 ************************************************************************************/
 public class EnemySpawnBullet : MonoBehaviour {

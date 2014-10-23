@@ -2,7 +2,7 @@
 using System.Collections;
 /************************************************************************************
 
-This file describe the behaivour of the player based on the detection of gesutre/physical actions 
+This file describe the behaivour of the player character based on the detection of gesutre/physical actions 
 from Kinect
 Auther:  Yang Chen
 

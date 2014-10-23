@@ -81,7 +81,8 @@ public class BattlePosition: MonoBehaviour {
                     g.GetComponentInChildren<MeshRenderer>().enabled = true;
                 }
             }
-            barrelToEnable.GetComponent<Barrel>().Activate();
+            if (barrelToEnable != null)
+                barrelToEnable.GetComponent<Barrel>().Activate();
 		}
 	}
 
@@ -125,7 +126,10 @@ public class BattlePosition: MonoBehaviour {
         Vector3 pos = splines.transform.FindChild("1").position;
         Instantiate(explosion,pos ,Quaternion.identity);
         AudioSource.PlayClipAtPoint(explosionEffect, transform.position);
-        Destroy(objectToDestroy, 0.0f);
+        if (objectToDestroy)
+        {
+            Destroy(objectToDestroy, 0.0f);
+        }
     }
 
     /// <summary>

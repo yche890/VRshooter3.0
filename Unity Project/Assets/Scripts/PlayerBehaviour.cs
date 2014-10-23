@@ -28,9 +28,9 @@ public class PlayerBehaviour : MonoBehaviour {
     void Update () {
     }
     /// <summary>
-    /// Player is hit by enemy bullet
+    /// Player is hit by enemy bullet, and stop the game when player is dead
     /// </summary>
-    /// <param name="c">C.</param>
+    /// <param name="c">collision</param>
     void OnCollisionEnter(Collision c){
         if (c.gameObject.tag == "EnemyBullet")
         {

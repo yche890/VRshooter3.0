@@ -100,7 +100,6 @@
      <Compile Include="Assets\Scripts\EnemyBulletFly.cs" />
      <Compile Include="Assets\Scripts\EnemyGunScript.cs" />
      <Compile Include="Assets\Scripts\EnemySpawnBullet.cs" />
-     <Compile Include="Assets\Scripts\FireControl.cs" />
      <Compile Include="Assets\Scripts\GunScript.cs" />
      <Compile Include="Assets\Scripts\HeadsUpDisplay.cs" />
      <Compile Include="Assets\Scripts\InitialPosition.cs" />

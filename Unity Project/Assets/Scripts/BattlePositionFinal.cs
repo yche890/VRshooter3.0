@@ -26,10 +26,7 @@ public class BattlePositionFinal: MonoBehaviour {
     /// 1:only left-dodge  2:only right-dodge 3: no left or right 0: no limit
     /// </summary>
     public int dodgeRestrict;
-    /// <summary>
-    /// If the message of "boss is coming" should be displayed
-    /// </summary>
-    private static bool showBossComing = false;
+
     /// <summary>
     /// The boss position.
     /// </summary>
@@ -59,7 +56,7 @@ public class BattlePositionFinal: MonoBehaviour {
             pickedUp = true;
             //Debug.LogError("pickup trigger collide");
             player.GetComponentInChildren<KinectInput>().setRestrict(dodgeRestrict);
-            showBossComing = true;
+
             HeadsUpDisplay.DisableBossComing();
             foreach (GameObject g in enemies){
                 if(g != null){
@@ -68,7 +65,8 @@ public class BattlePositionFinal: MonoBehaviour {
                     g.GetComponentInChildren<MeshRenderer>().enabled = true;
                 }
             }
-            barrelToEnable.GetComponent<Barrel>().Activate();
+            if (barrelToEnable!=null)
+                barrelToEnable.GetComponent<Barrel>().Activate();
 		}
 	}
 

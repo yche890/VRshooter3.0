@@ -71,7 +71,7 @@ public class KinectInput : MonoBehaviour {
     /// <summary>
     /// The indexes of points from Kinect's skeleton wrapper.
     /// </summary>
-    private int HipCenter = 0,
+    private readonly int HipCenter = 0,
     Spine = 1,
     ShoulderCenter = 2,
     Head = 3,
@@ -99,7 +99,8 @@ public class KinectInput : MonoBehaviour {
     void Start () {
         var pc = GameObject.Find("OurPlayer/OVRPlayerController");
         device = pc.GetComponentInChildren<OVRDevice>();
-
+        // the mouse will not change the scene
+        pc.GetComponentInChildren<OVRPlayerController>().SetSkipMouseRotation(true);
     }
     
     // Update is called once per frame
@@ -168,6 +169,7 @@ public class KinectInput : MonoBehaviour {
                 Debug.Log("player height:" + playerHeight + "\tcentre:" + playerCentreX + "\tthresholdX:" + leftRightSensitivity);
                 //reset the orientation
                 OVRDevice.ResetOrientation();
+
             }
 
         }
@@ -179,7 +181,7 @@ public class KinectInput : MonoBehaviour {
                 //if the hands are together
                 if (Vector3.Distance(leftHand, rightHand) < fireSensitivity)
                 {
-                    //if the hands are raised 
+                    //if the arms are raised 
                     if (leftHand.y > sp.y && rightHand.y > sp.y)
                     {   
                         fire = true;
@@ -268,7 +270,7 @@ public class KinectInput : MonoBehaviour {
                 if (Vector3.Distance(shoulder, hip) > 0.05f)
                 {   
                     //detect if both hands are above head
-                    if (leftHand.y > head.y && rightHand.y > head.y)
+                    if (leftHand.y > head.y + 0.4 && rightHand.y > head.y + 0.4)
                     {
                         
                         surrender = true;
@@ -377,9 +379,13 @@ public class KinectInput : MonoBehaviour {
     /// </summary>
     /// <returns><c>true</c>, if surrender was gotten, <c>false</c> otherwise.</returns>
     public static bool GetSurrender(){
-            
-        //return pause;
-        return false;
+        if (!GetCrouch() && InitialPosition.isGameStarted())
+        {    
+            return surrender;
+        } else
+        {
+            return false;
+        }
     }
     /// <summary>
     /// Gets the game resume.
