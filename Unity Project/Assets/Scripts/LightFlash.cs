@@ -6,7 +6,11 @@ This file describe the behaivour of player's body when hit by enemy
 Auther:  Kevin Du
 
 ************************************************************************************/
-
+/// <summary>
+/// Auther: Kevin Du
+/// Date: 09/2014
+/// Function: Created effects of light flashing.(broken light)
+/// </summary>
 public class LightFlash : MonoBehaviour {
 	private GameObject leftlight3;
 	private GameObject shapeLeftlight3;

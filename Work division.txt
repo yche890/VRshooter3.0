@@ -1,8 +1,18 @@
 Henry:
-
+Enemy Shooting and Targetting
+Bullet Animations and Effects
+Scene Transitions using Spline Controller
+Oculus Heads-up Display
+Player and Enemy Interactions (i.e. Getting shot)
 
 Kevin:
-
+Game anlaysis
+Player's exercising actions/gestures anlaysis
+Enemies' locations and player's game character's location moving path and stopping locations 
+Assets design.
+enemies design.
+Police car design and police car lights' effects.
+warehouse design and lights' effects.
 
 
 Yang:
