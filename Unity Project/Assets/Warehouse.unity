@@ -7226,7 +7226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 2
 --- !u!1 &122174441
 GameObject:
   m_ObjectHideFlags: 0
@@ -12876,7 +12876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 2
 --- !u!1 &262141501
 GameObject:
   m_ObjectHideFlags: 0
@@ -16596,7 +16596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 2
 --- !u!1 &296681573
 GameObject:
   m_ObjectHideFlags: 0
@@ -19121,7 +19121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 2
 --- !u!1 &332554100
 GameObject:
   m_ObjectHideFlags: 0
@@ -27714,7 +27714,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 69afad2667925954b81e80012c924aa7, type: 2}
       propertyPath: setLife
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69afad2667925954b81e80012c924aa7, type: 2}
@@ -29978,7 +29978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 2
 --- !u!1 &521250155
 GameObject:
   m_ObjectHideFlags: 0
@@ -33998,7 +33998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 3
 --- !u!136 &592891330
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41841,7 +41841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 2
 --- !u!1001 &716015485
 Prefab:
   m_ObjectHideFlags: 0
@@ -42266,7 +42266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 5
 --- !u!1 &727800966
 GameObject:
   m_ObjectHideFlags: 0
@@ -56812,6 +56812,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 69afad2667925954b81e80012c924aa7, type: 2}
+      propertyPath: setLife
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69afad2667925954b81e80012c924aa7, type: 2}
   m_RootGameObject: {fileID: 667914283}
@@ -65948,7 +65952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 2
 --- !u!1 &1033690719
 GameObject:
   m_ObjectHideFlags: 0
@@ -68435,7 +68439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 3
 --- !u!136 &1070961618
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -68988,7 +68992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 3
 --- !u!136 &1083941693
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -74656,6 +74660,10 @@ Prefab:
     - target: {fileID: 2300000, guid: f5fa318620806e8408bd8be04f1bf624, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: f5fa318620806e8408bd8be04f1bf624, type: 2}
+      propertyPath: setLife
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5fa318620806e8408bd8be04f1bf624, type: 2}
@@ -87512,7 +87520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 3
 --- !u!136 &1373424660
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -94729,6 +94737,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 69afad2667925954b81e80012c924aa7, type: 2}
+      propertyPath: setLife
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69afad2667925954b81e80012c924aa7, type: 2}
   m_RootGameObject: {fileID: 1131698874}
@@ -101781,6 +101793,10 @@ Prefab:
       propertyPath: m_Radius
       value: .400000006
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: f5fa318620806e8408bd8be04f1bf624, type: 2}
+      propertyPath: setLife
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5fa318620806e8408bd8be04f1bf624, type: 2}
   m_RootGameObject: {fileID: 178499940}
@@ -106729,7 +106745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 5
 --- !u!1 &1622495678
 GameObject:
   m_ObjectHideFlags: 0
@@ -107049,7 +107065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 2
 --- !u!1 &1631665801
 GameObject:
   m_ObjectHideFlags: 0
@@ -107935,7 +107951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 1
+  setLife: 2
 --- !u!1 &1656225405
 GameObject:
   m_ObjectHideFlags: 0
@@ -126381,7 +126397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8d0352ecfefa4b8bbee272e77fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLife: 7
+  setLife: 3
 --- !u!136 &1957938498
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -127101,6 +127117,10 @@ Prefab:
     - target: {fileID: 2300000, guid: f5fa318620806e8408bd8be04f1bf624, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: f5fa318620806e8408bd8be04f1bf624, type: 2}
+      propertyPath: setLife
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5fa318620806e8408bd8be04f1bf624, type: 2}
@@ -138134,6 +138154,10 @@ Prefab:
     - target: {fileID: 2300000, guid: 69afad2667925954b81e80012c924aa7, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 69afad2667925954b81e80012c924aa7, type: 2}
+      propertyPath: setLife
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69afad2667925954b81e80012c924aa7, type: 2}

@@ -6,13 +6,31 @@ using System.Collections;
  */
 public class HeadsUpDisplay : VRGUI
 {
+    /// <summary>
+    /// GUISkin refers to the layout UI that is utilized to create the HUD
+    /// </summary>
     public GUISkin skin;
-    public Texture texture;
+    /// <summary>
+    /// Store the previous value of the health to detect changes
+    /// </summary>
     private int healthTemp = 100;
+    /// <summary>
+    /// Score keeping
+    /// </summary>
     private static int score = 0;
+    /// <summary>
+    /// Whether the head-up display shows the message of "Final boss coming"
+    /// </summary>
     private static bool IsBossComing = false;
+    /// <summary>
+    /// count is used to delay the removal of the on hit indeicator
+    /// </summary>
     int count = 0;
 
+
+    /// <summary>
+    /// Create and Display the VR HUD on the Oculus, creates the Health, Score and any other messages to be displayed
+    /// </summary>
     public override void OnVRGUI()
     {
         
@@ -33,6 +51,7 @@ public class HeadsUpDisplay : VRGUI
         //"<size=40>"++"</size>"
         int dodgeRestrict = KinectInput.getLeftRightRestrict();
         string dodgeHint = "";
+        //Dodge Indicators
         if (dodgeRestrict == 0)
         {
             dodgeHint = "<              >";
@@ -88,19 +107,25 @@ public class HeadsUpDisplay : VRGUI
         }
         float height = KinectInput.playerHeight;
         GUI.Label(new Rect(0, 0, 300, 200), "<size=42>Height: " + height +"</size>");
-        //GUI.Label(new Rect(Screen.width - 200,Screen.height-35,200,80), "+");
 
-        //GUI.DrawTexture(new Rect(0f, 0f, Screen.width,Screen.height), texture);
-        //GUI.Label(new Rect(Screen.width/2 - 400, Screen.height - 100, 800, 100), "Press Space For Menu"); 
     }
 
+    /// <summary>
+    /// Increase score for each enemy killed
+    /// </summary>
     public static void enemyKilled(){
         score += 10;
     }
+    /// <summary>
+    /// set show final message true
+    /// </summary>
     public static void shoudShowFinalBossMessage(){
         IsBossComing = true;
 
     }
+    /// <summary>
+    /// set show final message true
+    /// </summary>
     public static void DisableBossComing(){
         IsBossComing = false;
     }

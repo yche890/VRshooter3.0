@@ -7,13 +7,18 @@ Auther:  Henry Lee
 
 ************************************************************************************/
 public class EnemyAI : MonoBehaviour {
-
-    public int setLife = 3;
+    /// <summary>
+    /// The initial life of enemy.
+    /// </summary>
+    public int setLife = 2;
+    /// <summary>
+    /// lift counter of enemy
+    /// </summary>
     private int life;
 
 
 
-	// Use this for initialization
+	// Use this for initialization, initialize the life
 	void Start () {
 
         life = setLife;
@@ -23,9 +28,11 @@ public class EnemyAI : MonoBehaviour {
 	void Update () {
         //enemy will not move, otherwise the difficulty is too hard
 	}
-    /*
-     * Player hit the enemy
-     */
+
+     /// <summary>
+    /// Player hit the enemy
+     /// </summary>
+     /// <param name="c">collision event.</param>
     void OnCollisionEnter(Collision c){
         Debug.Log("player collider:" + c.ToString());
         if (c.gameObject.tag == "PlayerBullet")

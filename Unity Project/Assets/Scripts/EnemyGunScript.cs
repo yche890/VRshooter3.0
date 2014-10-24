@@ -4,6 +4,7 @@ using System.Collections;
 /// <summary>
 /// This file describe the behaivour of enemies gun
 /// Auther: Henry Lee, Yang Chen
+/// For more details of the comments, see GunScript.cs
 /// </summary>
 ************************************************************************************/
 public class EnemyGunScript : MonoBehaviour {
