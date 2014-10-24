@@ -73,7 +73,7 @@ public class BattlePositionFinal: MonoBehaviour {
     void Update(){
         if (checkEnemyAllDie() && pickedUp)
         {
-            Debug.LogError("enemy all dead! game over");
+            //Debug.LogError("enemy all dead! game over");
             if (!splineActivated)
             {
                 if (explosion != null){

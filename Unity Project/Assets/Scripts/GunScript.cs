@@ -110,10 +110,11 @@ public class GunScript : MonoBehaviour {
         dir.Normalize();
 
         RaycastHit hit;
-        /// testing
+        /// cast the ray
         if (!Physics.Raycast(cameraPosition, dir, out hit, 1000.0f))
         {
-            Debug.LogError("no target on the crosshair!");
+            // if there is no target in the crosshair, i.e pointing to the sky, shooting towards crosshair.
+            Debug.Log("no target on the crosshair!");
             bulletTarget = crosshairPosition;
         }
         bulletTarget = hit.point; //the target we are aiming

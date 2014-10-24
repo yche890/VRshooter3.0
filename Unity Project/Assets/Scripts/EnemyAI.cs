@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour {
      /// </summary>
      /// <param name="c">collision event.</param>
     void OnCollisionEnter(Collision c){
-        Debug.Log("player collider:" + c.ToString());
+
         if (c.gameObject.tag == "PlayerBullet")
         {
             life = life - 1;

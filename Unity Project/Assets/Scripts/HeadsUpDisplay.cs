@@ -88,7 +88,7 @@ public class HeadsUpDisplay : VRGUI
         if (IsBossComing)
         {
             GUI.Label(new Rect(w / 2 - 300, h / 2 - 180, 600, 400), "<size=60>Final Boss Coming!</size>");
-            Debug.Log("show final boss msg!");
+            //Debug.Log("show final boss msg!");
         }
         if (PlayerBehaviour.IsPlayerDead())
         {
