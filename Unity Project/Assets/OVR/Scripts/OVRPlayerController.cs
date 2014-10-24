@@ -234,7 +234,8 @@ public class OVRPlayerController : MonoBehaviour
 		// Move
 			
 		// WASD
-		if (Input.GetKey(KeyCode.W)) moveForward = true;
+		/*
+        if (Input.GetKey(KeyCode.W)) moveForward = true;
 		if (Input.GetKey(KeyCode.A)) moveLeft	 = true;
 		if (Input.GetKey(KeyCode.S)) moveBack 	 = true; 
 		if (Input.GetKey(KeyCode.D)) moveRight 	 = true; 
@@ -243,7 +244,7 @@ public class OVRPlayerController : MonoBehaviour
 		if (Input.GetKey(KeyCode.LeftArrow))  moveLeft 	  = true;
 		if (Input.GetKey(KeyCode.DownArrow))  moveBack 	  = true; 
 		if (Input.GetKey(KeyCode.RightArrow)) moveRight   = true; 
-
+        */
 		// D-Pad
 		bool dpad_move = false;
 		if(OVRGamepadController.GPC_GetButton((int)OVRGamepadController.Button.Up) == true)
@@ -312,11 +313,11 @@ public class OVRPlayerController : MonoBehaviour
 		prevHatRight = curHatRight;
 
 		//Use keys to ratchet rotation
-		if (Input.GetKeyDown(KeyCode.Q)) 
+		/*if (Input.GetKeyDown(KeyCode.Q)) 
 			YRotation -= RotationRatchet; 
 		if (Input.GetKeyDown(KeyCode.E)) 
 			YRotation += RotationRatchet;
-		
+		*/
 		// * * * * * * * * * * *
 		// Mouse input
 			
